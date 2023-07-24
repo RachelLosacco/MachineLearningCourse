@@ -1,0 +1,287 @@
+### arXiv:xxxx.xxxxx              LSST photo-z testbed catalogs    (Zhou+, 2019)
+================================================================================
+Deep ugrizY Imaging and DEEP2/3 Spectroscopy: A Photometric Redshift Testbed for
+LSST and Public Release of Data from the DEEP3 Galaxy Redshift Survey
+      Rongpu Zhou, Michael C. Cooper, Jeffrey A. Newman, Matthew L. N. Ashby, 
+      James Aird, Christopher J. Conselice, Marc Davis, Aaron A. Dutton, 
+      S. M. Faber, Jerome J. Fang, G. G. Fazio, Puragra Guhathakurta, 
+      Dale Kocevski, David C. Koo, Kirpal Nandra, Andrew C. Phillips, 
+      David J. Rosario, Edward F. Schlafly, Jonathan R. Trump, Benjamin Weiner, 
+      Christopher N. A. Willmer, and Renbin Yan
+================================================================================
+Keywords: galaxies: distances and redshifts – catalogues – surveys
+
+Abstract:
+    We present catalogs of calibrated photometry and spectroscopic redshifts in 
+    the Extended Groth Strip, intended for studies of photometric redshifts 
+    (photo-z's). The data includes ugriz photometry from CFHTLS and Y-band
+    photometry from the Subaru Suprime camera, as well as spectroscopic 
+    redshifts from the DEEP2, DEEP3 and 3D-HST surveys. These catalogs 
+    incorporate corrections to produce effectively matched-aperture photometry 
+    across all bands, based upon object size information available in the 
+    catalog and Moffat profile point spread function fits. We test this catalog 
+    with a simple machine learning-based photometric redshift algorithm, based 
+    upon Random Forest regression, and find that the corrected aperture 
+    photometry leads to significant improvement in photo-z accuracy compared 
+    to the original SExtractor catalogs from CFHTLS and Subaru. The deep 
+    ugrizY photometry and spectroscopic redshifts are well-suited for 
+    empirical tests of photometric redshift algorithms for LSST. We include a 
+    basic summary of the strategy of the DEEP3 Galaxy Redshift Survey to 
+    accompany the recent public release of DEEP3 data.
+
+File Summary:
+--------------------------------------------------------------------------------
+FileName                              Records    Explanations
+--------------------------------------------------------------------------------
+ReadMe                                      .   This file
+DEEP2_uniq_Terapix_Subaru_v1.fits       23822   DEEP2/3 redshift catalog with 
+                                                 CFHTLS Deep+Wide field ugriz
+                                                 photometry and Subaru Y-band
+                                                 photometry added
+3D-HST_Terapix_Subaru_v1.fits           14462   3D-HST redshift catalog with 
+                                                 CFHTLS Deep+Wide field ugriz
+                                                 photometry and Subaru Y-band
+                                                 photometry added; DEEP2
+                                                 redshifts also added
+DEEP2_uniq_Terapix_Wide_Subaru_v1.fits  23822   DEEP2/3 redshift catalog with 
+                                                 CFHTLS Wide field ugriz
+                                                 photometry and Subaru Y-band
+                                                 photometry added
+3D-HST_Terapix_Wide_Subaru_v1.fits      14462   3D-HST redshift catalog with 
+                                                 CFHTLS Wide field ugriz
+                                                 photometry and Subaru Y-band
+                                                 photometry added; DEEP2
+                                                 redshifts also added
+Terapix_Deep_v1.fits                   603852   CFHTLS Deep field catalog
+                                                 with ugriz photometry
+Terapix_Wide_combined_v1.fits         1415859   CFHTLS Wide field catalog
+                                                 with ugriz photometry
+Subaru_Y_v1.fits                        94014   Subaru Y-band catalog
+--------------------------------------------------------------------------------
+
+Description of file: DEEP2_uniq_Terapix_Subaru_v1.fits
+--------------------------------------------------------------------------------
+Label           Format      Explanations
+--------------------------------------------------------------------------------
+## DEEP2/3 columns:
+objno_deep2     int32       DEEP2 object number 
+ra_deep2        float64     Right Ascension from DEEP2 (in decimal degrees, J2000)
+dec_deep2       float64     Declination from DEEP2 (in decimal degrees, J2000)
+magb            float32     CFHT B-band magnitude (AB) from Coil et al. 2004
+magr            float32     CFHT R-band magnitude (AB) from Coil et al. 2004
+magi            float32     CFHT I-band magnitude (AB) from Coil et al. 2004
+pgal            float32     the probability (0 - 1) that the sources is a galaxy for unresolved galaxies, 3 if resolved
+sfd_ebv         float32     E(B-V) from Schlegel, Finkbeiner, and Davis dust map
+class           string      type of best-fitting template (e.g., GALAXY or STAR)
+subclass        string      coarse classification for stellar templates
+objname         string      the 8-digit DEEP2 object id (same as OBJNO)
+maskname        string      the DEEP2/DEEP3 slitmask number on which the object was observed
+slitname        string      the slitlet number (on mask MASKNAME) in which the object was placed
+date            string      Date on which the mask was observed (YYYY-MM-DD)
+mjd             float32     Modified Julian date of observation
+z_raw           float32     observed best-fitting redshift
+zhelio          float32     redshift corrected for heliocentric motion
+z_err           float32     redshift error
+rchi2           float32     reduced chi-squared value for the redshift fit
+dof             int32       degrees of freedom for redshift fit
+vdisp           float32     velocity dispersion in km/s
+vdisp_err       float32     error in velocity dispersion
+zquality        int16       redshift quality code, Q
+egsflags        int32       flag denoting membership in a particular target list
+comment         string      comment field
+m_b             float32     absolute B-band magnitude (AB, h = 1) from Willmer et al. (2006)
+ub_0            float32     rest-frame U-B color (AB) from Willmer et al. (2006)
+## CFHTLS columns:
+ra_cfhtls       float64     Right Ascension from CFHTLS after astrometric correction in decimal degrees
+dec_cfhtls      float64     Declination from CFHTLS after astrometric correction in decimal degrees
+u               float64     MAG_AUTO magnitude in u-band
+g               float64     MAG_AUTO magnitude in g-band
+r               float64     MAG_AUTO magnitude in r-band
+i               float64     MAG_AUTO magnitude in i-band
+i2              float64     MAG_AUTO magnitude in i2-band
+z               float64     MAG_AUTO magnitude in z-band
+uerr            float64     MAG_AUTO magnitude error in u-band
+gerr            float64     MAG_AUTO magnitude error in g-band
+rerr            float64     MAG_AUTO magnitude error in r-band
+ierr            float64     MAG_AUTO magnitude error in i-band
+i2err           float64     MAG_AUTO magnitude error in i2-band
+zerr            float64     MAG_AUTO magnitude error in z-band
+u_apercor       float64     MAG_APERCOR magnitude in u-band
+g_apercor       float64     MAG_APERCOR magnitude in g-band
+r_apercor       float64     MAG_APERCOR magnitude in r-band
+i_apercor       float64     MAG_APERCOR magnitude in i-band
+i2_apercor      float64     MAG_APERCOR magnitude in i2-band
+z_apercor       float64     MAG_APERCOR magnitude in z-band
+uerr_aper       float64     MAG_APERCOR magnitude error from image noise in u-band
+gerr_aper       float64     MAG_APERCOR magnitude error from image noise in g-band
+rerr_aper       float64     MAG_APERCOR magnitude error from image noise in r-band
+ierr_aper       float64     MAG_APERCOR magnitude error from image noise in i-band
+i2err_aper      float64     MAG_APERCOR magnitude error from image noise in i2-band
+zerr_aper       float64     MAG_APERCOR magnitude error from image noise in z-band
+uerr_apercor    float64     MAG_APERCOR magnitude error from correction uncertainty in u-band
+gerr_apercor    float64     MAG_APERCOR magnitude error from correction uncertainty in g-band
+rerr_apercor    float64     MAG_APERCOR magnitude error from correction uncertainty in r-band
+ierr_apercor    float64     MAG_APERCOR magnitude error from correction uncertainty in i-band
+i2err_apercor   float64     MAG_APERCOR magnitude error from correction uncertainty in i2-band
+zerr_apercor    float64     MAG_APERCOR magnitude error from correction uncertainty in z-band
+r_radius_arcsec float64     r-band half-light radius in arcsec
+u(sexflag)      int64       u-band SExtractor flag
+g(sexflag)      int64       g-band SExtractor flag
+r(sexflag)      int64       r-band SExtractor flag
+i(sexflag)      int64       i-band SExtractor flag
+i2(sexflag)     int64       i2-band SExtractor flag
+z(sexflag)      int64       z-band SExtractor flag
+flag_cfhtls     int64       CFHTLS flag
+cfhtls_source   int64       source of the ugri(i2)z photometry: 0 = Deep field; 1 = Wide field; -99 = not observed
+## Subaru Y-band columns:
+ra_subaru       float64     Right Ascension from Subaru Y-band observation after astrometric correction in decimal degrees
+dec_subaru      float64     Declination from Subaru Y-band observation after astrometric correction in decimal degrees
+y               float64     MAG_AUTO magnitude in Subaru Y-band
+yerr            float64     MAG_AUTO magnitude error in Subaru Y-band
+y_apercor       float64     MAG_APERCOR magnitude in Y-band
+yerr_aper       float64     MAG_APERCOR magnitude error from image noise in Y-band
+yerr_apercor    float64     MAG_APERCOR magnitude error from correction uncertainty in Y-band
+y(sexflag)      float64     Y-band SExtractor flag
+y_radius_arcsec float64     Y-band half-light radius in arcsec
+subaru_source   int64       source of the Y-band photometry: 0 = deep pointing; 1 = shallow pointing; -99 = not observed
+--------------------------------------------------------------------------------
+Note (1): The CFHTLS ugriz and Subaru Y-band magnitudes have been corrected for 
+  Galactic extinction
+     (2): If both CFHTLS Deep and Wide are available, the Deep field data is 
+  used
+     (3): The catalog structure is based on alldeep.egs.uniq.2012jun13.fits.gz
+  from http://deep.ps.uci.edu/deep3/zcatalog.html, with all the original DEEP2/3
+  objects and values kept unchanged
+     (4): DEEP2_uniq_Terapix_Wide_Subaru_v1.fits only differs from this catalog
+  in that it only includes CFHTLS Wide field data
+     (5): More info on DEEP2/3: http://deep.ps.uci.edu/deep3/ztags.html
+     (6): More info on CFHTLS: http://terapix.calet.org/terapix.iap.fr/cplt/T0007/doc/T0007-docsu22.html
+--------------------------------------------------------------------------------
+
+Description of file: 3D-HST_Terapix_Subaru_v1.fits
+--------------------------------------------------------------------------------
+Label           Format      Explanations
+--------------------------------------------------------------------------------
+## 3D-HST columns:
+ra_3dhst        float64     Right Ascension from 3D-HST
+dec_3dhst       float64     Declination from 3D-HST
+phot_id         int64       Photometric id from Skelton et al. (2014)
+grism_id        string      Grism id of the spectrum which yielded this fit
+jh_mag          float64     MAG_AUTO measured from the combined F125W+F140W+F160W image
+z_spec          float64     Spectroscopic redshift where available (-1 if not available)
+z_peak_phot     float64     Photometric redshift from Skelton et al. (2014)
+z_phot_l95      float64     Photometric redshift at the lower 95% confidence limit
+z_phot_l68      float64     Photometric redshift at the lower 68% confidence limit
+z_phot_u68      float64     Photometric redshift at the upper 68% confidence limit
+z_phot_u95      float64     Photometric redshift at the upper 95% confidence limit
+z_max_grism     float64     Default grism redshift: the redshift where the p(z | grism, phot) is maximized
+z_peak_grism    float64     Integral of p(z | grism, phot)*z*dz, integrated over the whole redshift range
+z_grism_l95     float64     Grism redshift at the lower 95% confidence limit
+z_grism_l68     float64     Grism redshift at the lower 68% confidence limit
+z_grism_u68     float64     Grism redshift at the upper 68% confidence limit
+z_grism_u95     float64     Grism redshift at the lower 95% confidence limit
+f_cover         float64     Fraction of spectrum within the image (0=bad, 1=good)
+f_flagged       float64     Fraction of flagged pixels (1=bad, 0=good)
+max_contam      float64     Maximum contamination
+int_contam      float64     Contamination integrated over the spectrum (= flux_contam/flux_object)
+f_negative      float64     Fraction of pixels with negative flux after contamination correction
+flag1           int64       Grism z flag (user 1): -1=no flag, 0=good, 1=bad, 2=unclear
+flag2           int64       Grism z flag (user 2): -1=no flag, 0=good, 1=bad, 2=unclear
+use_zgrism      int64       Flag defining objects with the most reliable grism-derived redshifts: 1=use, 0=do not use
+use_phot        int64       Photometric use flag from Skelton et al. (2014): 1 = use; 0 = do not use
+z_best_s        int64       Source of the best redshift: 1 = ground-based spectroscopy; 2 = grism; 3 = photometry; 0 = star
+z_best          float64     Best available redshift measurement (-1 for stars)
+z_best_l95      float64     Lower 95% confidence limit derived form the z_best p(z), -1 for stars and z_spec
+z_best_l68      float64     Lower 68% confidence limit derived form the z_best p(z), -1 for stars and z_spec
+z_best_u68      float64     Upper 95% confidence limit derived form the z_best p(z), -1 for stars and z_spec
+z_best_u95      float64     Upper 95% confidence limit derived form the z_best p(z), -1 for stars and z_spec
+## CFHTLS columns:
+ra_cfhtls       float64     Right Ascension from CFHTLS after astrometric correction in decimal degrees
+dec_cfhtls      float64     Declination from CFHTLS after astrometric correction in decimal degrees
+u               float64     MAG_AUTO magnitude in u-band
+g               float64     MAG_AUTO magnitude in g-band
+r               float64     MAG_AUTO magnitude in r-band
+i               float64     MAG_AUTO magnitude in i-band
+i2              float64     MAG_AUTO magnitude in i2-band
+z               float64     MAG_AUTO magnitude in z-band
+uerr            float64     MAG_AUTO magnitude error in u-band
+gerr            float64     MAG_AUTO magnitude error in g-band
+rerr            float64     MAG_AUTO magnitude error in r-band
+ierr            float64     MAG_AUTO magnitude error in i-band
+i2err           float64     MAG_AUTO magnitude error in i2-band
+zerr            float64     MAG_AUTO magnitude error in z-band
+u_apercor       float64     MAG_APERCOR magnitude in u-band
+g_apercor       float64     MAG_APERCOR magnitude in g-band
+r_apercor       float64     MAG_APERCOR magnitude in r-band
+i_apercor       float64     MAG_APERCOR magnitude in i-band
+i2_apercor      float64     MAG_APERCOR magnitude in i2-band
+z_apercor       float64     MAG_APERCOR magnitude in z-band
+uerr_aper       float64     MAG_APERCOR magnitude error from image noise in u-band
+gerr_aper       float64     MAG_APERCOR magnitude error from image noise in g-band
+rerr_aper       float64     MAG_APERCOR magnitude error from image noise in r-band
+ierr_aper       float64     MAG_APERCOR magnitude error from image noise in i-band
+i2err_aper      float64     MAG_APERCOR magnitude error from image noise in i2-band
+zerr_aper       float64     MAG_APERCOR magnitude error from image noise in z-band
+uerr_apercor    float64     MAG_APERCOR magnitude error from correction uncertainty in u-band
+gerr_apercor    float64     MAG_APERCOR magnitude error from correction uncertainty in g-band
+rerr_apercor    float64     MAG_APERCOR magnitude error from correction uncertainty in r-band
+ierr_apercor    float64     MAG_APERCOR magnitude error from correction uncertainty in i-band
+i2err_apercor   float64     MAG_APERCOR magnitude error from correction uncertainty in i2-band
+zerr_apercor    float64     MAG_APERCOR magnitude error from correction uncertainty in z-band
+r_radius_arcsec float64     r-band half-light radius in arcsec
+u(sexflag)      int64       u-band SExtractor flag
+g(sexflag)      int64       g-band SExtractor flag
+r(sexflag)      int64       r-band SExtractor flag
+i(sexflag)      int64       i-band SExtractor flag
+i2(sexflag)     int64       i2-band SExtractor flag
+z(sexflag)      int64       z-band SExtractor flag
+flag_cfhtls     int64       CFHTLS flag
+cfhtls_source   int64       source of the ugri(i2)z photometry: 0 = Deep field; 1 = Wide field; -99 = not observed
+## Subaru Y-band columns:
+ra_subaru       float64     Right Ascension from Subaru Y-band observation after astrometric correction in decimal degrees
+dec_subaru      float64     Declination from Subaru Y-band observation after astrometric correction in decimal degrees
+y               float64     MAG_AUTO magnitude in Subaru Y-band
+yerr            float64     MAG_AUTO magnitude error in Subaru Y-band
+y_apercor       float64     MAG_APERCOR magnitude in Y-band
+yerr_aper       float64     MAG_APERCOR magnitude error from image noise in Y-band
+yerr_apercor    float64     MAG_APERCOR magnitude error from correction uncertainty in Y-band
+y(sexflag)      float64     Y-band SExtractor flag
+y_radius_arcsec float64     Y-band half-light radius in arcsec
+subaru_source   int64       source of the Y-band photometry: 0 = deep pointing; 1 = shallow pointing; -99 = not observed
+## DEEP2/3 columns:
+objno_deep2     int32       DEEP2/3 object number 
+z_deep2         float32     DEEP2/3 redshift corrected for heliocentric motion
+z_err_deep2     float32     DEEP2/3 redshift error
+zquality_deep2  int16       DEEP2/3 redshift quality code, Q
+## Other columns:
+use_zgrism1     int64       our grism redshift quality flag: 0 = less accurate; 1 = accurate
+sfd_ebv         float64     E(B-V) from Schlegel, Finkbeiner, and Davis (1998) dust map
+--------------------------------------------------------------------------------
+Note (1): The CFHTLS ugriz and Subaru Y-band magnitudes have been corrected for 
+  Galactic extinction
+     (2): If both CFHTLS Deep and Wide are available, the Deep field data is 
+  used
+     (3): The catalog structure is based on aegis_3dhst.v4.1.5.zfit.linematched.fits
+  (RA and Dec are from aegis_3dhst.v4.1.cat.FITS) from https://3dhst.research.yale.edu/Data.php;
+  Only objects with z_max_grism>0 AND z_peak_phot>0 are kept
+     (4): 3D-HST_Terapix_Wide_Subaru_v1.fits only differs from this catalog in
+  that it only includes CFHTLS Wide field data
+     (5): More info on 3D-HST: http://monoceros.astro.yale.edu/RELEASE_V4.1.5/3dhst_readme_v4.1.5.pdf
+     (6): More info on CFHTLS: http://terapix.calet.org/terapix.iap.fr/cplt/T0007/doc/T0007-docsu22.html
+--------------------------------------------------------------------------------
+
+Terapix_Deep_v1.fits and Terapix_Wide_combined_v1.fits are CFHTLS catalogs with
+MAG_APERCOR added in the CFTHSL Deep field and Wide field, respectively. 
+Photometric zero-point corrections are made and the magnitude columns are 
+overwritten with the corrected values. There is no Galactic extinction 
+correction.
+
+--------------------------------------------------------------------------------
+
+Subaru_Y_v1.fits is the Subaru Y-band catalog from SExtractor with MAG_APERCOR
+added. Photometric zero-point corrections are made and the magnitude columns 
+are overwritten with the corrected values. There is no Galactic extinction 
+correction.
+
+================================================================================
+(End)                  Rongpu Zhou [University of Pittsburgh, USA]    2019/03/13
